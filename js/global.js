@@ -8,10 +8,10 @@ $( function() {
 	var endDate = "December 31, 2017 15:03:25";
 	$('.countdown.simple').countdown({ date: endDate });
 	$('.countdown.styled').countdown({
-	  date: endDate,
+	  date: +(new Date) + 1000*60*20,
 	  render: function(data) {
-		$(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>DAYS</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>HOURS</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>MINUTES</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>SECONDS</span></div>");
-	  }
+		$(this.el).html("<div>" + this.leadingZeros(data.hours, 2) + " <span>HOURS</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>MINUTES</span></div><div>" + "<p id='lblSecs'>" + this.leadingZeros(data.sec, 2) + "</p>" + " <span>SECONDS</span></div>");
+	  },
 	});
 	$('.countdown.callback').countdown({
 	  date: +(new Date) + 10000,
