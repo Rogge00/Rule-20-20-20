@@ -1,6 +1,6 @@
 /*
 Author: WebThemez
-Author URL: http://webthemez.com 
+Author URL: http://webthemez.com
 */
 $( function() {
 // Add background image
