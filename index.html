@@ -21,6 +21,11 @@ Author URL: http://webthemez.com
 		document.getElementById('lblSecs').value = parseInt(document.getElementById('lblSecs').value) - 1;
 		alert("a");
 	}
+
+	function reset() {
+		 //alert("");
+		 $("#timerCont").load(location.href+" #timerCont");
+	 }
 </script>
 
 <body id="home">
@@ -31,7 +36,7 @@ Author URL: http://webthemez.com
 	<h1><a href="#" class="logo">20-20-20</a></h1>
 	</div>
 </div>
-<div class="countdown styled"></div>
+<div id='timerCont' class="countdown styled"></div>
 </div>
 
 <div class="bottom-wrapper">
@@ -39,9 +44,9 @@ Author URL: http://webthemez.com
 <input type="text" name="Email" size="20" value="Subscribe your e-mail Id">-->
 <div id="subscribe">
 
-	<form method="POST" action="">
-		<p class="subscribe-input"><input type="submit" value="RESTART TIMER" name="Submit"></p>
-	</form>
+	<p class="subscribe-input"><input class="control" type="submit" onclick="reset();" value="RESTART TIMER" name="Submit">
+	<input type="submit" onclick="reset();" value="START TIMER" name="Submit"></p>
+
 
 	<div id="socialIcons">
 		<ul>
@@ -67,7 +72,7 @@ Author URL: http://webthemez.com
 
 	 function timer() {
 		 for(let i=0; i<20; i++) {
-			 for(let j=0; j<60; j++;) {
+			 for(let j=0; j<60; j++) {
 
 			 }
 		 }

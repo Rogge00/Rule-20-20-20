@@ -129,7 +129,7 @@ clear: both;
 text-align:center;
 }
 #subscribe input {color: #666;vertical-align: middle;width: 293px;border: 1px solid #929292;padding: 0 10px;height: 40px;text-align: left;}
-#subscribe input[type="submit"]{background: rgba(255, 255, 255, 1);width: auto;padding: 0px 25px;cursor: pointer;margin-left: -5px;font-weight: bold;height: 42px;display: inline-block;color: #6D3A32;}
+#subscribe input[type="submit"]{background: rgba(255, 255, 255, 1); text-align:center; width: 170px;padding: 0px 25px;cursor: pointer;margin-left: -5px;font-weight: bold;height: 42px;display: inline-block;color: #6D3A32;}
 
 
 .callback,
