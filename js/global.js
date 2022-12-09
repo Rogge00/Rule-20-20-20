@@ -8,9 +8,14 @@ $( function() {
 	var endDate = "December 31, 2017 15:03:25";
 	$('.countdown.simple').countdown({ date: endDate });
 	$('.countdown.styled').countdown({
-	  date: +(new Date) + 1000*60*20,
+	  date: +(new Date) + 1000*60*20 ,
 	  render: function(data) {
-		$(this.el).html("<div>" + this.leadingZeros(data.min, 2) + " <span>MINUTES</span></div><div>" + "<p id='lblSecs'>" + this.leadingZeros(data.sec, 2) + "</p>" + " <span>SECONDS</span></div>");
+		$(this.el).html("<div>" + "<p id='lblMins'>" + this.leadingZeros(data.min, 2) + "</p>" + " <span>MINUTES</span></div><div>" + 
+									"<p id='lblSecs'>" + this.leadingZeros(data.sec, 2) + "</p>" + " <span>SECONDS</span></div>").stop();
+	  },
+	  refresh: false,
+	  onEnd: function() {
+		//$(this.el).addClass('ended'); //TODO different color...?
 	  },
 	});
 	$('.countdown.callback').countdown({

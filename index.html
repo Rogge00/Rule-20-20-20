@@ -17,15 +17,21 @@ Author URL: http://webthemez.com
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 
-<script> function decrease() {
+<script> 
+
+	function decrease() {
 		document.getElementById('lblSecs').value = parseInt(document.getElementById('lblSecs').value) - 1;
 		alert("a");
 	}
 
-	function reset() {
-		 //alert("");
-		 $("#timerCont").load(location.href+" #timerCont");
-	 }
+	function restart() {
+		$("#timerCont").removeClass('ended').data('countdown').update(+(new Date) + 1000*60*20).start();
+	}
+
+	function start() {
+		$("#timerCont").removeClass('ended').data('countdown').stop();
+	}
+	
 </script>
 
 <body id="home">
@@ -44,8 +50,8 @@ Author URL: http://webthemez.com
 <input type="text" name="Email" size="20" value="Subscribe your e-mail Id">-->
 <div id="subscribe">
 
-	<p class="subscribe-input"><input class="control" type="submit" onclick="reset();" value="RESTART TIMER" name="Submit">
-	<input type="submit" onclick="reset();" value="START TIMER" name="Submit"></p>
+	<p class="subscribe-input"><input class="control" type="submit" id="restartButton" onclick="restart();" value="RESTART TIMER" name="Submit">
+	<input type="submit" onclick="start();" value="STOP TIMER" name="Submit"></p>
 
 
 	<div id="socialIcons">
@@ -69,16 +75,17 @@ Author URL: http://webthemez.com
 
 <script>
 
-
+	/*
 	 function timer() {
 		 for(let i=0; i<20; i++) {
-			 for(let j=0; j<60; j++) {
+			 for(let j=0; j<60; j++;) {
 
 			 }
 		 }
 	 }
+	 */
 
-	 //decrease();
+
 </script>
 
 </body>

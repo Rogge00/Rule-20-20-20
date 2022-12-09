@@ -273,3 +273,8 @@ adding-top: 16px;
 	position:relative !important;
 	}
 }
+
+.control {
+	width: 40px;
+	color: blue;
+}
