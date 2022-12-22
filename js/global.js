@@ -15,9 +15,32 @@ $( function() {
 	  },
 	  refresh: false,
 	  onEnd: function() {
-		//$(this.el).addClass('ended'); //TODO different color...?
-	  },
-	});
+		Swal.fire('Any fool can use a computer');
+	}
+	}).on("click", function() {
+		let timerInterval
+		Swal.fire({
+		title: 'Auto close alert!',
+		html: 'I will close in <b></b> milliseconds.',
+		timer: 60000*20,
+		timerProgressBar: true,
+		didOpen: () => {
+			Swal.showLoading()
+			const b = Swal.getHtmlContainer().querySelector('b')
+			timerInterval = setInterval(() => {
+			b.textContent = Swal.getTimerLeft()
+			}, 100)
+		},
+		willClose: () => {
+			clearInterval(timerInterval)
+		}
+		}).then((result) => {
+		/* Read more about handling dismissals below */
+		if (result.dismiss === Swal.DismissReason.timer) {
+			console.log('I was closed by the timer')
+		}
+		})
+	  });
 	$('.countdown.callback').countdown({
 	  date: +(new Date) + 10000,
 	  render: function(data) {
