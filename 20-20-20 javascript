@@ -1,0 +1,55 @@
+import time
+import tkinter as tk
+
+// Crea una funzione per inviare la notifica
+function send_notification() {
+  // Crea una nuova finestra
+  let width = 600; // Larghezza
+  let height = 300; // Altezza
+  let window = tk.Tk();
+  window.geometry("600x300");
+  window.title("Notification");
+
+  // Aggiungi un'etichetta alla finestra
+  let label = tk.Label(text="Stacca gli occhi dal computer per 20 secondi", font=("Helvetica", 16));
+  label.pack();
+  // Crea l'etichetta del timer di conto alla rovescia
+  let timer_label = tk.Label(text="20", font=("Helvetica", 16));
+  timer_label.pack();
+
+  // Crea la funzione di conto alla rovescia
+  function countdown() {
+      let time = parseInt(timer_label['text']);
+      if (time > 0) {
+          timer_label.config(text=String(time - 1));
+          timer_label.after(1000, countdown);
+      }
+  }
+
+  // Avvia il conto alla rovescia
+  countdown();
+
+  // Centra la finestra
+  let screen_width = window.winfo_screenwidth(); // Larghezza dello schermo
+  let screen_height = window.winfo_screenheight(); // Altezza dello schermo
+
+  let x = (screen_width/2) - (width/2);
+  let y = (screen_height/2) - (height/2);
+
+  window.geometry(`${width}x${height}+${x}+${y}`);
+
+  // Mostra la finestra per 5 secondi
+  window.wm_attributes("-topmost", 1);
+  window.after(20000, window.destroy);
+  window.mainloop();
+}
+
+// Avvia lo script con una pressione del tasto
+// input("Premi invio per avviare lo script");
+
+// Esegui lo script in modo indefinito
+while (true) {
+  // Invia la notifica ogni 20 minuti
+  send_notification();
+  time.sleep(1200);
+}
