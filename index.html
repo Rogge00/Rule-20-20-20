@@ -15,9 +15,20 @@ Author URL: http://webthemez.com
 <meta name="description" content="Trendset Page under construction">
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
 </head>
 
-<script> 
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js">
+</script>  
+
+<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/Backstretch.js"></script>
+<script type="text/javascript" src="js/jquery.countdown.js"></script>
+<script type="text/javascript" src="js/global.js"></script>
+
+
 
 	function decrease() {
 		document.getElementById('lblSecs').value = parseInt(document.getElementById('lblSecs').value) - 1;
@@ -28,10 +39,27 @@ Author URL: http://webthemez.com
 		$("#timerCont").removeClass('ended').data('countdown').update(+(new Date) + 1000*60*20).start();
 	}
 
-	function start() {
+	function stop() {
 		$("#timerCont").removeClass('ended').data('countdown').stop();
 	}
 	
+</script>
+
+<script>
+
+swal({  
+  title: " Confirm?",  
+  text: "Imaginary file",  
+  type: "alert message",  
+  showCancelButton: true,  
+  confirmButtonClass: "btn-danger",  
+  confirmButtonText: " Confirm, remove it!",  
+  closeOnConfirm: false  
+},  
+function(){  
+  swal("remove it!", "Imaginary file remove it.", "Confirm");  
+});  
+
 </script>
 
 <body id="home">
@@ -50,8 +78,8 @@ Author URL: http://webthemez.com
 <input type="text" name="Email" size="20" value="Subscribe your e-mail Id">-->
 <div id="subscribe">
 
-	<p class="subscribe-input"><input class="control" type="submit" id="restartButton" onclick="restart();" value="RESTART TIMER" name="Submit">
-	<input type="submit" onclick="start();" value="STOP TIMER" name="Submit"></p>
+	<p class="subscribe-input"><input class="control" type="submit" id="restartButton" onclick="restart();" value="START TIMER" name="Submit"> </p>
+	<!-- <input type="submit" onclick="start();" value="STOP TIMER" name="Submit"></p> -->
 
 
 	<div id="socialIcons">
