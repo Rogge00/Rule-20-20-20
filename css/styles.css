@@ -128,8 +128,27 @@ clear: both;
 #subscribe p{
 text-align:center;
 }
-#subscribe input {color: #666;vertical-align: middle;width: 293px;border: 1px solid #929292;padding: 0 10px;height: 40px;text-align: left;}
-#subscribe input[type="submit"]{background: rgba(255, 255, 255, 1); text-align:center; width: 170px;padding: 0px 25px;cursor: pointer;margin-left: -5px;font-weight: bold;height: 42px;display: inline-block;color: #6D3A32;}
+#subscribe input {
+	color: #666;
+	vertical-align: middle;
+	width: 293px;
+	border: 1px solid #929292;
+	padding: 0 10px;
+	height: 40px;
+	text-align: left;
+}
+#subscribe input[type="submit"]{
+	background: rgba(255, 255, 255, 1); 
+	text-align:center; 
+	width: 170px;
+	padding: 0px 25px;
+	cursor: pointer;
+	margin-left: -5px;
+	font-weight: bold;
+	font-family: 'Audiowide', cursive;
+	height: 42px;
+	display: inline-block;color: #00C6B2;
+}
 
 
 .callback,
@@ -196,7 +215,7 @@ margin:10px;
 .top-wrapper{
 	width:100%;
 	padding: 0;
-	background: #EC253F;
+	background: #00C6B2;
 	float: left;
 }
 .bottom-wrapper{
@@ -206,9 +225,9 @@ margin:10px;
 	float: left;
 }
 #subscribe input[type="submit"]:hover{
-	background: #EC253F;
+	background: #00C6B2;
 	color: #fff;
-	border-color: #EC253F;
+	border-color: #01a191;
 }
 .tempBy a:hover{
 color:#000;
@@ -258,7 +277,7 @@ color:#000;
 }
 @media(max-width:420px){
 h1{
-adding-top: 16px;
+padding-top: 16px;
 }	
 #header {
     margin-bottom: 30px;
