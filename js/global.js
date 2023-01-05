@@ -15,14 +15,11 @@ $( function() {
 	  },
 	  refresh: false,
 	  onEnd: function() {
-		Swal.fire('Any fool can use a computer');
-	}
-	}).on("click", function() {
 		let timerInterval
 		Swal.fire({
-		title: 'Auto close alert!',
-		html: 'I will close in <b></b> milliseconds.',
-		timer: 60000*20,
+		title: 'TIME TO REST!!',
+		html: 'Look at something at least 20 meters away!<br>I will close in <b></b> milliseconds.',
+		timer: 1000*20,
 		timerProgressBar: true,
 		didOpen: () => {
 			Swal.showLoading()
@@ -33,13 +30,33 @@ $( function() {
 		},
 		willClose: () => {
 			clearInterval(timerInterval)
-		}
+		},
+		allowOutsideClick: () => {
+			const popup = Swal.getPopup()
+			popup.classList.remove('swal2-show')
+			setTimeout(() => {
+			  popup.classList.add('animate__animated', 'animate__headShake')
+			})
+			setTimeout(() => {
+			  popup.classList.remove('animate__animated', 'animate__headShake')
+			}, 500)
+			return false
+		  }
 		}).then((result) => {
-		/* Read more about handling dismissals below */
-		if (result.dismiss === Swal.DismissReason.timer) {
-			console.log('I was closed by the timer')
-		}
-		})
+			/* Read more about handling dismissals below */
+			if (result.dismiss === Swal.DismissReason.timer) {
+				console.log('I was closed by the timer')
+			}
+			$("#timerCont").data('countdown').update(+(new Date) + 2000).start();
+			var audio = $("#soundObj")[0];
+			audio.pause();
+		});
+		//sound alert
+		var mp3 = '<source src="media/dis.mp3" type="audio/mp3">';
+        document.getElementById("sound").innerHTML = '<audio autoplay="autoplay" id="soundObj">' + mp3 + "</audio>";
+	  }
+	}).on("click", function() {
+		$(this).data('countdown').update(+(new Date) + 1000).start();
 	  });
 	$('.countdown.callback').countdown({
 	  date: +(new Date) + 10000,

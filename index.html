@@ -16,6 +16,9 @@ Author URL: http://webthemez.com
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
 
 </head>
 
@@ -29,11 +32,12 @@ Author URL: http://webthemez.com
 	}
 
 	function restart() {
-		$("#timerCont").removeClass('ended').data('countdown').update(+(new Date) + 1000*60*20).start();
+		$("#timerCont").data('countdown').update(+(new Date) + 999*60*20).start(); //999 to immediately have "19:59" in the timer
+		$("#restartButton").attr('value', 'RESTART TIMER'); //button value change after the first start
 	}
 
 	function stop() {
-		$("#timerCont").removeClass('ended').data('countdown').stop();
+		$("#timerCont").data('countdown').stop();
 	}
 	
 </script>
@@ -55,38 +59,7 @@ Author URL: http://webthemez.com
 <div id="subscribe">
 
 	<p class="subscribe-input"><input class="control" type="submit" id="restartButton" onclick="restart();" value="START TIMER" name="Submit"> </p>
-
-	<!--
-	<script>
-		
-		$('#restartButton').on('click',function(){
-			let timerInterval
-			swal({
-			title: 'Auto close alert!',
-			html: 'I will close in <b></b> milliseconds.',
-			timer: 2000,
-			timerProgressBar: true,
-			didOpen: () => {
-				Swal.showLoading()
-				const b = Swal.getHtmlContainer().querySelector('b')
-				timerInterval = setInterval(() => {
-				b.textContent = Swal.getTimerLeft()
-				}, 100)
-			},
-			willClose: () => {
-				clearInterval(timerInterval)
-			}
-			}).then((result) => {
-			/* Read more about handling dismissals below */
-			if (result.dismiss === Swal.DismissReason.timer) {
-				console.log('I was closed by the timer')
-			}
-			})
-		})
-		
-		
-	</script>
-	-->
+	<div id="sound"></div>
 
 	<div id="socialIcons">
 		<ul>
@@ -108,23 +81,36 @@ Author URL: http://webthemez.com
 <script type="text/javascript" src="js/Backstretch.js"></script> -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/jquery.countdown.js"></script>
 <script type="text/javascript" src="js/global.js"></script> 
 
-<script>
 
-	/*
-	 function timer() {
-		 for(let i=0; i<20; i++) {
-			 for(let j=0; j<60; j++;) {
+<!-- all'import di bootstrap, necessario per questo footer, si sbagascia la dimensione del div "top-wrapper"
+ <footer class="text-center text-lg-start" style="background-color: #db6930;">
+<!--
+    <div class="container d-flex justify-content-center py-5">
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-facebook-f"></i>
+      </button>
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-youtube"></i>
+      </button>
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-instagram"></i>
+      </button>
+      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+        <i class="fab fa-twitter"></i>
+      </button>
+    </div>
 
-			 }
-		 }
-	 }
-	 */
-
-
-</script>
+    <div class="text-center text-white p-3" style="background-color: #00C6B2;">
+      © 2020 Copyright:
+      <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+</footer>
+-->
 
 </body>
 </html>
